@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rekam_medis', function (Blueprint $table) {
+        Schema::create('penghunis', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('keluhan');
-            $table->string('diagnosis');
-            $table->date('tanggal_tindakan')->nullable();
-            $table->enum('status', ['Sehat', 'Dalam perawatan']);
+            $table->string('foto')->nullable();
+            $table->integer('umur');
+            $table->date('tanggal_lahir');
+            $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
+            $table->enum('status', ['Aktif', 'Dirawat Inap', 'Keluar', 'Meninggal Dunia'])->default('Aktif');
+
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rekam_medis');
+        Schema::dropIfExists('penghunis');
     }
 };
