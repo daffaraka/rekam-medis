@@ -48,6 +48,14 @@ class PenghuniController extends Controller
         return view('penghuni.penghuni-edit', compact('penghuni'));
     }
 
+    public function show($id)
+    {
+        $penghuni = Penghuni::find($id);
+
+        return view('penghuni.penghuni-show', compact('penghuni'));
+    }
+
+
 
     public function update($id, Request $request)
     {

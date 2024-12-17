@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('diagnosis');
             $table->date('tanggal_tindakan')->nullable();
             $table->enum('status', ['Sehat', 'Dalam perawatan']);
+            $table->foreignId('penghuni_id')->constrained('penghunis');
             $table->timestamps();
         });
     }

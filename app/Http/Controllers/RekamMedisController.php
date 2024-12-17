@@ -36,6 +36,15 @@ class RekamMedisController extends Controller {
     }
 
 
+    public function show($id)
+    {
+        $rekam = RekamMedis::find($id);
+
+        return view('rekam-medis.rekam-medis-show', compact('rekam'));
+    }
+
+
+
     public function update($id, Request $request)
     {
         $rekam = RekamMedis::find($id);
