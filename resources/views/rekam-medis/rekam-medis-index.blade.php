@@ -5,7 +5,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Data Rekam Medis</h6>
         </div>
         <div class="card-body">
-            @if (Auth::user()->role == 'perawat')
+            @if (Auth::user()->role == 'Perawat')
                 <a href="{{ route('rekam-medis.create') }}" class="btn btn-primary mt-2 mb-4">Tambah Data</a>
             @endif
             <div class="table-responsive">
@@ -31,6 +31,8 @@
                                 <td>{{ $item->tanggal_tindakan }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>
+                                    <a href="rekam-medis/{{ $item->id }}/" class="btn btn-info btn-sm">Show</a>
+
                                     <a href="rekam-medis/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
                                     {{-- <a href="rekam-medis/{{ $item->id }}" class="btn btn-info btn-sm">Lihat</a> --}}
                                     <form action="{{ route('rekam-medis.destroy', $item->id) }}" method="POST"

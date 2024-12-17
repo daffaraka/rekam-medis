@@ -12,7 +12,10 @@
                 </div>
                 <div class="form-group">
                     <label for="foto">Foto</label>
-                    <img src="{{ asset('storage/' . $penghuni->foto) }}" width="100" height="100" alt="">
+                    <div class="">
+                        <img src="{{ asset( $penghuni->foto) }}" width="300" height="300" alt="">
+
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="umur">Umur</label>

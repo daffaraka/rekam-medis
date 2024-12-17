@@ -19,8 +19,8 @@
         <div class="mt-4">
             <x-input-label for="role" :value="__('Role')" />
             <select id="role" name="role" class="block mt-1 w-full rounded" required>
-                <option value="admin">{{ __('Admin') }}</option>
-                <option value="perawat">{{ __('Perawat') }}</option>
+                <option value="Admin">{{ __('Admin') }}</option>
+                <option value="Perawat">{{ __('Perawat') }}</option>
             </select>
             <x-input-error :messages="$errors->get('role')" class="mt-2" />
         </div>

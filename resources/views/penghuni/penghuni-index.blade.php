@@ -32,7 +32,7 @@
                                 <td>{{ $item->status }}</td>
                                 <td>
                                     <a href="penghuni/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                    {{-- <a href="rekam-medis/{{ $item->id }}" class="btn btn-info btn-sm">Lihat</a> --}}
+                                    <a href="penghuni/{{ $item->id }}" class="btn btn-info btn-sm">Lihat</a>
                                     <form action="{{ route('penghuni.destroy', $item->id) }}" method="POST"
                                         class="d-inline">
                                         @method('DELETE')
