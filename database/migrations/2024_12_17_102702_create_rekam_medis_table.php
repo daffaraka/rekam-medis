@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('rekam_medis', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
             $table->string('keluhan');
             $table->string('diagnosis');
             $table->date('tanggal_tindakan')->nullable();

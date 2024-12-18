@@ -8,9 +8,14 @@
             <form action="{{ route('rekam-medis.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label for="nama">Nama Pasien</label>
-                    <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror"
-                        id="nama" value="{{ old('nama') }}">
+                    <label for="nama">Nama Pasien Penghuni</label>
+                    <select name="nama" class="form-control @error('nama') is-invalid @enderror" id="nama">
+                        <option value="">-- Pilih Nama --</option>
+                        @foreach ($penghuni as $item)
+                            <option value="{{ $item->id }}">Nama</option>
+                        @endforeach
+                        <!-- Add options here -->
+                    </select>
                     @error('nama')
                         <div class="invalid-feedback">
                             {{ $message }}

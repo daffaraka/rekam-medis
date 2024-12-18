@@ -8,10 +8,16 @@ class RekamMedis extends Model
 {
 
     protected $fillable = [
-        'nama',
         'keluhan',
         'diagnosis',
         'tanggal_tindakan',
         'status',
+        'penghuni_id',
     ];
+
+
+    public function penghuni()
+    {
+        return $this->belongsTo(Penghuni::class);
+    }
 }

@@ -7,7 +7,7 @@
         <div class="card-body">
             <div class="form-group">
                 <label for="nama">Nama Pasien</label>
-                <input type="text" class="form-control" id="nama" value="{{ $rekam->nama }}" readonly>
+                <input type="text" class="form-control" id="nama" value="{{ $rekam->penghuni->nama }}" readonly>
             </div>
             <div class="form-group">
                 <label for="keluhan">Keluhan</label>
@@ -23,12 +23,8 @@
             </div>
             <div class="form-group">
                 <label for="status">Status</label>
-                <select class="form-control" id="status" disabled>
-                    <option value="">-- Pilih Status --</option>
-                    <option value="sehat" {{ $rekam->status == 'sehat' ? 'selected' : '' }}>Sehat</option>
-                    <option value="dalam perawatan" {{ $rekam->status == 'dalam perawatan' ? 'selected' : '' }}>Dalam
-                        Perawatan</option>
-                </select>
+                <input type="text" class="form-control" id="status" value="{{ $rekam->status }}" readonly>
+
             </div>
         </div>
     </div>

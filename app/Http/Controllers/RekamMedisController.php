@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Penghuni;
 use App\Models\RekamMedis;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class RekamMedisController extends Controller {
 
     public function create()
     {
-        return view('rekam-medis.rekam-medis-create');
+        $penghuni = Penghuni::all();
+        return view('rekam-medis.rekam-medis-create',compact('penghuni'));
     }
 
     public function store(Request $request)
@@ -30,7 +32,7 @@ class RekamMedisController extends Controller {
 
     public function edit($id)
     {
-        $rekam = RekamMedis::find($id);
+        $rekam = RekamMedis::with('penghuni')->find($id);
 
         return view('rekam-medis.rekam-medis-edit', compact('rekam'));
     }
@@ -38,8 +40,7 @@ class RekamMedisController extends Controller {
 
     public function show($id)
     {
-        $rekam = RekamMedis::find($id);
-
+        $rekam = RekamMedis::with('penghuni')->find($id);
         return view('rekam-medis.rekam-medis-show', compact('rekam'));
     }
 

@@ -14,4 +14,10 @@ class Penghuni extends Model
         'jenis_kelamin',
         'status',
     ];
+
+
+    public function rekamMedis()
+    {
+        return $this->hasOne(RekamMedis::class);
+    }
 }

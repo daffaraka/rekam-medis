@@ -11,7 +11,7 @@
                 <div class="form-group">
                     <label for="nama">Nama Pasien</label>
                     <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror"
-                        id="nama" value="{{ old('nama', $rekam->nama) }}">
+                        id="nama" value="{{ old('nama', $rekam->penghuni->nama) }}">
                     @error('nama')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -51,8 +51,8 @@
                     <label for="status">Status</label>
                     <select name="status" class="form-control @error('status') is-invalid @enderror" id="status">
                         <option value="">-- Pilih Status --</option>
-                        <option value="sehat" {{ old('status', $rekam->status) == 'sehat' ? 'selected' : '' }}>Sehat</option>
-                        <option value="dalam perawatan" {{ old('status', $rekam->status) == 'dalam perawatan' ? 'selected' : '' }}>Dalam
+                        <option value="Sehat" {{ old('status', $rekam->status) == 'Sehat' ? 'selected' : '' }}>Sehat</option>
+                        <option value="Dalam perawatan" {{ old('status', $rekam->status) == 'Dalam perawatan' ? 'selected' : '' }}>Dalam
                             Perawatan</option>
                     </select>
                     @error('status')
