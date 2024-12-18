@@ -10,8 +10,14 @@
                 @method('PUT')
                 <div class="form-group">
                     <label for="nama">Nama Pasien</label>
-                    <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror"
-                        id="nama" value="{{ old('nama', $rekam->penghuni->nama) }}">
+                    <select name="nama" class="form-control @error('nama') is-invalid @enderror" id="nama">
+                        <option value="">-- Pilih Nama Pasien --</option>
+                        @foreach ($penghuni as $item)
+                            <option value="{{ $item->id }}" {{ old('nama', $rekam->penghuni->id) == $item->id ? 'selected' : '' }}>
+                                {{ $item->nama }}
+                            </option>
+                        @endforeach
+                    </select>
                     @error('nama')
                         <div class="invalid-feedback">
                             {{ $message }}

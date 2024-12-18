@@ -12,7 +12,7 @@
                     <select name="nama" class="form-control @error('nama') is-invalid @enderror" id="nama">
                         <option value="">-- Pilih Nama --</option>
                         @foreach ($penghuni as $item)
-                            <option value="{{ $item->id }}">Nama</option>
+                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
                         @endforeach
                         <!-- Add options here -->
                     </select>
