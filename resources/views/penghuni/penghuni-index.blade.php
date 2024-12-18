@@ -5,7 +5,9 @@
             <h6 class="m-0 font-weight-bold text-primary">Data Penghuni</h6>
         </div>
         <div class="card-body">
-            <a href="{{ route('penghuni.create') }}" class="btn btn-primary mt-2 mb-4">Tambah Data</a>
+            @if (Auth::user()->role == 'Admin')
+                <a href="{{ route('penghuni.create') }}" class="btn btn-primary mt-2 mb-4">Tambah Data</a>
+            @endif
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -31,7 +33,9 @@
                                 <td>{{ $item->jenis_kelamin }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>
-                                    <a href="penghuni/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                                    @if (Auth::user()->role == 'Admin')
+                                        <a href="penghuni/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                                    @endif
                                     <a href="penghuni/{{ $item->id }}" class="btn btn-info btn-sm">Lihat</a>
                                     <form action="{{ route('penghuni.destroy', $item->id) }}" method="POST"
                                         class="d-inline">

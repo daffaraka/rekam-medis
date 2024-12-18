@@ -32,8 +32,10 @@
                                 <td>{{ $item->status }}</td>
                                 <td>
                                     <a href="rekam-medis/{{ $item->id }}/" class="btn btn-info btn-sm">Show</a>
-
-                                    <a href="rekam-medis/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                                    @if (Auth::user()->role == 'Perawat')
+                                        <a href="rekam-medis/{{ $item->id }}/edit"
+                                            class="btn btn-warning btn-sm">Edit</a>
+                                    @endif
                                     {{-- <a href="rekam-medis/{{ $item->id }}" class="btn btn-info btn-sm">Lihat</a> --}}
                                     <form action="{{ route('rekam-medis.destroy', $item->id) }}" method="POST"
                                         class="d-inline">
