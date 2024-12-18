@@ -10,7 +10,7 @@
                 @method('PUT')
                 <div class="form-group">
                     <label for="nama">Nama Pasien</label>
-                    <select name="nama" class="form-control @error('nama') is-invalid @enderror" id="nama">
+                    <select name="penghuni_id" class="form-control @error('nama') is-invalid @enderror" id="nama">
                         <option value="">-- Pilih Nama Pasien --</option>
                         @foreach ($penghuni as $item)
                             <option value="{{ $item->id }}" {{ old('nama', $rekam->penghuni->id) == $item->id ? 'selected' : '' }}>

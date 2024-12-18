@@ -25,7 +25,7 @@
                         @foreach ($data as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->nama }}</td>
+                                <td>{{ $item->penghuni->nama }}</td>
                                 <td>{{ $item->keluhan }}</td>
                                 <td>{{ $item->diagnosis }}</td>
                                 <td>{{ $item->tanggal_tindakan }}</td>

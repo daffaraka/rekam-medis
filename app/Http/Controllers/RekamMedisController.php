@@ -10,7 +10,7 @@ class RekamMedisController extends Controller {
 
     public function index()
     {
-        $data = RekamMedis::all();
+        $data = RekamMedis::with('penghuni')->get();
 
         return view('rekam-medis.rekam-medis-index', compact('data'));
     }
@@ -24,6 +24,7 @@ class RekamMedisController extends Controller {
     public function store(Request $request)
     {
 
+        // dd($request->all());
         RekamMedis::create($request->all());
 
 
@@ -33,8 +34,8 @@ class RekamMedisController extends Controller {
     public function edit($id)
     {
         $rekam = RekamMedis::with('penghuni')->find($id);
-
-        return view('rekam-medis.rekam-medis-edit', compact('rekam'));
+        $penghuni = Penghuni::all();
+        return view('rekam-medis.rekam-medis-edit', compact('rekam','penghuni'));
     }
 
 
